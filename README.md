@@ -12,3 +12,11 @@ The app allows users to generate and download memes using the [memegen.link](htt
 6. Netlify deploy.
 7. CodeSandbox.
 8. Drone.
+
+## Features and details
+
+1. User input (as a string) form (meme template input) + label (clear input on click).
+2. Top text input + label.
+3. Bottom text input + label.
+4. Preview area (make smaller with width and height?).
+5. Download button (clickable).
