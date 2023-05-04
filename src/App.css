@@ -1,0 +1,30 @@
+/*
+  * {border: 1px solid red}
+*/
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.user-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+button {
+  padding: 5px;
+}
+
+.user-input > * {
+  margin: 20px;
+}
+input {
+  margin-left: 10px;
+}
+
+header {
+  margin-left: 20px;
+}
