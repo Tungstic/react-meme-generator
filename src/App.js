@@ -1,6 +1,24 @@
 import './App.css';
+import { useState } from 'react';
 
 export default function App() {
+  const [imageName, setImageName] = useState('');
+  const [topText, setTopText] = useState('');
+  const [bottomText, setBottomText] = useState('');
+  const [link, setLink] = useState(
+    'https://api.memegen.link/images/preview.jpg?height=400&width=400',
+  );
+  /*
+  const handleChange = (event) => {
+    setImageName(event.target.value);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      setImageName(imageName);
+    }
+  };
+*/
   return (
     <>
       <header>
@@ -24,22 +42,27 @@ export default function App() {
 
           <label>
             Top text
-            <input />
+            <input
+              onChange={(event) => setTopText(event.currentTarget.value)}
+            />
           </label>
 
           <label>
             Bottom text
-            <input />
+            <input
+              onChange={(event) => setBottomText(event.currentTarget.value)}
+            />
           </label>
 
           <button>Download</button>
         </div>
-
         <img
-          src="https://api.memegen.link/images/buzz/memes/memes_everywhere.jpg?height=400&width=400"
-          alt="preview"
+          alt="meme"
           data-test-id="meme-image"
+          // eslint-disable-next-line react/jsx-curly-brace-presence
+          src={link}
         />
+        `
       </main>
     </>
   );
