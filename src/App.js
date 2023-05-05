@@ -1,11 +1,15 @@
 import './App.css';
 import { useState } from 'react';
 
+const baseURL = 'https://api.memegen.link/images/';
+
 export default function App() {
+  // set state variables
   const [imageName, setImageName] = useState('');
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
 
+  // meme template: clear by clicking on label/input AND fill by pressing Enter
   function clearTemplate(event) {
     event.currentTarget.value = '';
   }
@@ -16,7 +20,10 @@ export default function App() {
     }
   }
 
+  // check the value of imageName variable
   console.log('image name is ' + imageName);
+
+  // rendered page
   return (
     <>
       <header>
@@ -41,14 +48,18 @@ export default function App() {
           <label>
             Top text
             <input
-              onChange={(event) => setTopText(event.currentTarget.value)}
+              onChange={(event) => {
+                setTopText(event.currentTarget.value);
+              }}
             />
           </label>
 
           <label>
             Bottom text
             <input
-              onChange={(event) => setBottomText(event.currentTarget.value)}
+              onChange={(event) => {
+                setBottomText(event.currentTarget.value);
+              }}
             />
           </label>
 
@@ -59,9 +70,13 @@ export default function App() {
           data-test-id="meme-image"
           // eslint-disable-next-line react/jsx-curly-brace-presence
           src={
-            imageName !== ''
-              ? `https://api.memegen.link/images/${imageName}.jpg`
-              : `https://api.memegen.link/images/preview.jpg`
+            imageName !== '' && topText === '' && bottomText === ''
+              ? `${baseURL}${imageName}.jpg`
+              : imageName !== '' && topText !== '' && bottomText === ''
+              ? `${baseURL}${imageName}/${topText}.jpg`
+              : imageName !== '' && topText !== '' && bottomText !== ''
+              ? `${baseURL}${imageName}/${topText}/${bottomText}.jpg`
+              : `${baseURL}preview.jpg`
           }
         />
         `
