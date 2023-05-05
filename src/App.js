@@ -5,20 +5,18 @@ export default function App() {
   const [imageName, setImageName] = useState('');
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
-  const [link, setLink] = useState(
-    'https://api.memegen.link/images/preview.jpg?height=400&width=400',
-  );
-  /*
-  const handleChange = (event) => {
-    setImageName(event.target.value);
-  };
 
-  const handleKeyDown = (event) => {
+  function clearTemplate(event) {
+    event.currentTarget.value = '';
+  }
+
+  function handleKeyDown(event) {
     if (event.key === 'Enter') {
-      setImageName(imageName);
+      setImageName(event.currentTarget.value);
     }
-  };
-*/
+  }
+
+  console.log('image name is ' + imageName);
   return (
     <>
       <header>
@@ -37,7 +35,7 @@ export default function App() {
         <div className="user-input">
           <label>
             Meme template
-            <input />
+            <input onClick={clearTemplate} onKeyDown={handleKeyDown} />
           </label>
 
           <label>
@@ -60,7 +58,11 @@ export default function App() {
           alt="meme"
           data-test-id="meme-image"
           // eslint-disable-next-line react/jsx-curly-brace-presence
-          src={link}
+          src={
+            imageName !== ''
+              ? `https://api.memegen.link/images/${imageName}.jpg`
+              : `https://api.memegen.link/images/preview.jpg`
+          }
         />
         `
       </main>
