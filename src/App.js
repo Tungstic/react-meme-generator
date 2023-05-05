@@ -1,4 +1,5 @@
 import './App.css';
+import { saveAs } from 'file-saver';
 import { useState } from 'react';
 
 const baseURL = 'https://api.memegen.link/images/';
@@ -20,8 +21,16 @@ export default function App() {
     }
   }
 
+  // download image on button click
+
+  function downloadMeme() {
+    if (imageName && topText && bottomText) {
+      saveAs(`${baseURL}${imageName}/${topText}/${bottomText}.jpg`, 'my-meme');
+    }
+  }
+
   // check the value of imageName variable
-  console.log('image name is ' + imageName);
+  // console.log('image name is ' + imageName);
 
   // rendered page
   return (
@@ -63,7 +72,7 @@ export default function App() {
             />
           </label>
 
-          <button>Download</button>
+          <button onClick={downloadMeme}>Download</button>
         </div>
         <img
           alt="meme"
