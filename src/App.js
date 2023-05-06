@@ -77,7 +77,6 @@ export default function App() {
         <img
           alt="meme"
           data-test-id="meme-image"
-          // eslint-disable-next-line react/jsx-curly-brace-presence
           src={
             imageName !== '' && topText === '' && bottomText === ''
               ? `${baseURL}${imageName}.jpg`
