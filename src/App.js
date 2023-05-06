@@ -80,6 +80,10 @@ export default function App() {
           src={
             imageName !== '' && topText === '' && bottomText === ''
               ? `${baseURL}${imageName}.jpg`
+              : imageName === '' && topText !== '' && bottomText === ''
+              ? `${baseURL}preview/${topText}.jpg`
+              : imageName === '' && topText !== '' && bottomText !== ''
+              ? `${baseURL}preview/${topText}/${bottomText}.jpg`
               : imageName !== '' && topText !== '' && bottomText === ''
               ? `${baseURL}${imageName}/${topText}.jpg`
               : imageName !== '' && topText !== '' && bottomText !== ''
