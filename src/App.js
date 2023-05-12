@@ -37,7 +37,7 @@ export default function App() {
     <>
       <header>
         <h1>Create your own meme</h1>
-        <ul>
+        <ol>
           <li>
             Type a meme name into "Meme template" box and hit "Enter" (e.g.
             "doge", "kombucha", "mordor", "buzz", etc.).
@@ -47,7 +47,7 @@ export default function App() {
             Type in your own phrase using "Top text" and "Bottom text" boxes
           </li>
           <li>Download the finished meme</li>
-        </ul>
+        </ol>
       </header>
 
       <main>
